@@ -16,10 +16,12 @@ app.set('views', 'views')
 
 async function start() {
     try {
-        await mongoose.connect('mongodb+srv://pasha:gerfley3256@cluster0-zogh1.mongodb.net/todos', {
-            useNewUrlParser: true,
-            useFindAndModify: false
-        })
+        await mongoose.connect(
+            'mongodb+srv://pasha:gerfley3256@cluster0-zogh1.mongodb.net/todo?retryWrites=true&w=majority', 
+            {
+                useNewUrlParser: true,
+                useFindAndModify: false
+            })
 
         app.listen(port, () => console.log(`server has been started on ${port} port`))
 
